@@ -1,0 +1,4 @@
+Development was conducted using the GIT version control system. 
+The complete project history can be explored in the repository at:
+
+https://github.com/artem-totality/G00473379
