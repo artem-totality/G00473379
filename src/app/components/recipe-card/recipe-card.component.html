@@ -1,4 +1,14 @@
 <div class="recipe">
-  <img src="{{ recipe.image }}" alt="{{ recipe.title }}" />
+  <img
+    class="recipe__image"
+    src="{{ recipe.image }}"
+    alt="{{ recipe.title }}"
+  />
   <div class="recipe__title">{{ recipe.title }}</div>
+  <div class="recipe__bottom">
+    <ion-button>Details</ion-button>
+    <ion-button shape="round">
+      <ion-icon slot="icon-only" name="heart"></ion-icon>
+    </ion-button>
+  </div>
 </div>

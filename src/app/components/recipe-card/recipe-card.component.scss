@@ -1,3 +1,18 @@
 .recipe {
   margin-bottom: 20px;
+  border-bottom: 1px solid rgb(192, 192, 192);
+  &__image {
+    margin-bottom: 10px;
+    max-width: 320px;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 10px;
+  }
 }
