@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
+import { RecipeModel } from 'src/app/models/recipe.model';
 
 @Component({
   selector: 'recipe-card-list',
@@ -8,7 +9,9 @@ import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
   imports: [RecipeCardComponent],
 })
 export class RecipeCardListComponent implements OnInit {
-  constructor() {}
+  @Input()
+  recipeList!: RecipeModel[];
 
+  constructor() {}
   ngOnInit() {}
 }

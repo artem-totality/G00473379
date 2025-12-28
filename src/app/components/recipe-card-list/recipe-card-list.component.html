@@ -1,3 +1,5 @@
 <div class="recipe-list">
-  <recipe-card></recipe-card>
+  @for (recipe of recipeList; track $index) {
+  <recipe-card [recipe]="recipe"></recipe-card>
+  }
 </div>
