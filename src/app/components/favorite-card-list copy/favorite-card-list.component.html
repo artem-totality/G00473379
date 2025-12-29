@@ -1,0 +1,8 @@
+<div class="recipe-list">
+  @for (recipe of recipeList; track $index) { @if (isFavorite(recipe.id)) {
+  <recipe-card
+    [recipe]="recipe"
+    [(favoriteRecipes)]="favoriteRecipes"
+  ></recipe-card
+  >} }
+</div>
