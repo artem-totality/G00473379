@@ -1,10 +1,9 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonButton, IonIcon } from '@ionic/angular/standalone';
 import { RecipeModel } from 'src/app/models/recipe.model';
 import { addIcons } from 'ionicons';
 import { heart } from 'ionicons/icons';
-import { StorageService } from 'src/app/services/storage-service';
-import { FAVORITE_STORAGE_KEY } from 'src/app/common/constants/constants';
+import { FavoriteService } from 'src/app/services/favorite-service';
 
 @Component({
   selector: 'recipe-card',
@@ -19,31 +18,26 @@ export class RecipeCardComponent implements OnInit {
   recipe!: RecipeModel;
   @Input()
   favoriteRecipes!: RecipeModel[];
-  @Output()
-  favoriteRecipesChange = new EventEmitter<RecipeModel[]>();
 
-  constructor(private storageService: StorageService) {
+  constructor(private favoriteService: FavoriteService) {
     addIcons({ heart });
   }
 
-  ngOnInit() {
-    this.favoriteRecipesId = this.favoriteRecipes.map((recipe) => recipe.id);
-  }
+  ngOnInit() {}
 
   toggleFavorite() {
-    if (this.favoriteRecipesId.includes(this.recipe.id)) {
+    if (this.isFavorite(this.recipe.id)) {
       this.favoriteRecipes = this.favoriteRecipes.filter(
         (recipe) => recipe.id !== this.recipe.id
       );
     } else {
       this.favoriteRecipes.push(this.recipe);
     }
-    this.favoriteRecipesId = this.favoriteRecipes.map((recipe) => recipe.id);
 
-    this.storageService.setItem(
-      FAVORITE_STORAGE_KEY,
-      JSON.stringify(this.favoriteRecipes)
-    );
-    this.favoriteRecipesChange.emit(this.favoriteRecipes);
+    this.favoriteService.setFavorites(this.favoriteRecipes);
+  }
+
+  isFavorite(id: number): boolean {
+    return this.favoriteRecipes.map((r) => r.id).includes(id);
   }
 }

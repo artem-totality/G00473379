@@ -1,8 +1,8 @@
 <div class="recipe-list">
-  @for (recipe of recipeList; track $index) { @if (isFavorite(recipe.id)) {
+  @for (recipe of (favoriteRecipes$ | async) ?? []; track $index) {
   <recipe-card
     [recipe]="recipe"
-    [(favoriteRecipes)]="favoriteRecipes"
+    [favoriteRecipes]="(favoriteRecipes$ | async) ?? []"
   ></recipe-card
-  >} }
+  >}
 </div>

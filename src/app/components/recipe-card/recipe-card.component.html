@@ -9,7 +9,7 @@
     <ion-button>Details</ion-button>
     <ion-button
       shape="round"
-      [color]="favoriteRecipesId.includes(recipe.id) ? 'danger' : 'primary'"
+      [color]="isFavorite(recipe.id) ? 'danger' : 'primary'"
       (click)="toggleFavorite()"
     >
       <ion-icon slot="icon-only" name="heart"></ion-icon>

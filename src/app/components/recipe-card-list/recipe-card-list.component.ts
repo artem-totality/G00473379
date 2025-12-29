@@ -1,26 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
 import { RecipeModel } from 'src/app/models/recipe.model';
-import { StorageService } from 'src/app/services/storage-service';
-import { FAVORITE_STORAGE_KEY } from 'src/app/common/constants/constants';
+import { FavoriteService } from 'src/app/services/favorite-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'recipe-card-list',
   templateUrl: './recipe-card-list.component.html',
   styleUrls: ['./recipe-card-list.component.scss'],
-  imports: [RecipeCardComponent],
+  imports: [RecipeCardComponent, CommonModule],
 })
 export class RecipeCardListComponent implements OnInit {
-  favoriteRecipes: RecipeModel[] = [];
-
   @Input()
   recipeList!: RecipeModel[];
 
-  constructor(private storageService: StorageService) {}
-  ngOnInit() {
-    const storageData =
-      this.storageService.getItem(FAVORITE_STORAGE_KEY) ?? '[]';
-    const parsedData = JSON.parse(storageData);
-    this.favoriteRecipes = Array.isArray(parsedData) ? parsedData : [];
+  favoriteRecipes$!: Observable<RecipeModel[]>;
+
+  constructor(private favoriteService: FavoriteService) {
+    this.favoriteRecipes$ = this.favoriteService.favorites$;
   }
+
+  ngOnInit() {}
 }

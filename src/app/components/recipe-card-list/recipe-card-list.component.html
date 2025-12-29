@@ -2,7 +2,7 @@
   @for (recipe of recipeList; track $index) {
   <recipe-card
     [recipe]="recipe"
-    [(favoriteRecipes)]="favoriteRecipes"
+    [favoriteRecipes]="(favoriteRecipes$ | async) ?? []"
   ></recipe-card>
   }
 </div>
