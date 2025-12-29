@@ -1,5 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>G00473379</ion-title>
+    <ion-title (click)="goHome()" style="cursor: pointer">
+      G00473379
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="round" (click)="goFavorite()">
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+      </ion-button>
+      <ion-button shape="round" (click)="goSettings()">
+        <ion-icon slot="icon-only" name="options-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
