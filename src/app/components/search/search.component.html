@@ -1,0 +1,12 @@
+<div class="search">
+  <ion-item class="search__input">
+    <ion-input
+      label="Input ingredients: "
+      placeholder="ingredients..."
+      [(ngModel)]="searchQuery"
+    ></ion-input>
+  </ion-item>
+  <ion-button expand="full" disabled="{{ !searchQuery.trim() }}"
+    >Search</ion-button
+  >
+</div>
