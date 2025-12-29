@@ -37,7 +37,7 @@ export class HomePage {
         console.log(this.data[0]);
       },
       error: (error) => {
-        console.error('Ошибка:', error);
+        console.error('Error: ', error);
       },
     });
   }

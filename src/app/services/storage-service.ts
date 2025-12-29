@@ -4,7 +4,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class StorageService {
-  constructor(private storage: globalThis.Storage) {}
+  private storage: globalThis.Storage;
+
+  constructor() {
+    this.storage = localStorage;
+  }
 
   public getItem(key: string): string | null {
     return this.storage.getItem(key);
