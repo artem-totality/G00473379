@@ -30,15 +30,5 @@ export class HomePage {
 
   constructor(private httpService: HttpService) {}
 
-  ngOnInit() {
-    this.httpService.getRecipeDetails(34).subscribe({
-      next: (response) => {
-        this.data = response;
-        console.log(this.data[0]);
-      },
-      error: (error) => {
-        console.error('Error: ', error);
-      },
-    });
-  }
+  ngOnInit() {}
 }

@@ -7,7 +7,11 @@
   <div class="recipe__title">{{ recipe.title }}</div>
   <div class="recipe__bottom">
     <ion-button>Details</ion-button>
-    <ion-button shape="round">
+    <ion-button
+      shape="round"
+      [color]="favoriteRecipesId.includes(recipe.id) ? 'danger' : 'primary'"
+      (click)="toggleFavorite()"
+    >
       <ion-icon slot="icon-only" name="heart"></ion-icon>
     </ion-button>
   </div>
