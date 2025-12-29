@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class HttpService {
-  private apiUrl = 'https://api.spoonacular.com';
+  private apiUrl = 'https://jsonplaceholder.typicode.com';
 
   constructor(private http: HttpClient) {}
 
   // get recipe details
   getRecipeDetails(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/recipes/${id}/information`);
+    // return this.http.get(`${this.apiUrl}/recipes/${id}/information`);
+    return this.http.get(`${this.apiUrl}/posts`);
   }
 }

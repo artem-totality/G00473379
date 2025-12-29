@@ -9,6 +9,7 @@ import { RecipeCardListComponent } from 'src/app/components/recipe-card-list/rec
 import recipeListData from 'src/app/mocked-data/recipe-list.json';
 import { RecipeModel } from 'src/app/models/recipe.model';
 import { SearchComponent } from 'src/app/components/search/search.component';
+import { HttpService } from 'src/app/services/http-service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,19 @@ import { SearchComponent } from 'src/app/components/search/search.component';
 })
 export class HomePage {
   recipeList = recipeListData as RecipeModel[];
+  data: any[] = [];
 
-  constructor() {}
+  constructor(private httpService: HttpService) {}
+
+  ngOnInit() {
+    this.httpService.getRecipeDetails(34).subscribe({
+      next: (response) => {
+        this.data = response;
+        console.log(this.data[0]);
+      },
+      error: (error) => {
+        console.error('Ошибка:', error);
+      },
+    });
+  }
 }
