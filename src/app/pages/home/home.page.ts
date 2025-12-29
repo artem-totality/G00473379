@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonContent,
-} from '@ionic/angular/standalone';
+import { IonContent } from '@ionic/angular/standalone';
+import { HeaderComponent } from 'src/app/components/header/header.component';
 import { RecipeCardListComponent } from 'src/app/components/recipe-card-list/recipe-card-list.component';
 import recipeListData from 'src/app/mocked-data/recipe-list.json';
 import { RecipeModel } from 'src/app/models/recipe.model';
@@ -16,12 +12,10 @@ import { HttpService } from 'src/app/services/http-service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
-    IonHeader,
-    IonToolbar,
-    IonTitle,
     IonContent,
     RecipeCardListComponent,
     SearchComponent,
+    HeaderComponent,
   ],
 })
 export class HomePage {
