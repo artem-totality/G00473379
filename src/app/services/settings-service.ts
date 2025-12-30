@@ -24,7 +24,7 @@ export class SettingsService {
     this.measuresSetting.next(data);
   }
 
-  setFavorites(measuresSetting: MeasuresSetting) {
+  setMeasuresSetting(measuresSetting: MeasuresSetting) {
     this.storage.setItem(
       MEASURES_SETTING_STORAGE_KEY,
       JSON.stringify(measuresSetting)
@@ -33,7 +33,7 @@ export class SettingsService {
     this.measuresSetting.next(measuresSetting);
   }
 
-  getFavoritesSnapshot(): MeasuresSetting {
+  getMeasuresSettingSnapshot(): MeasuresSetting {
     return this.measuresSetting.value;
   }
 }

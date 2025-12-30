@@ -1,10 +1,24 @@
 <div class="settings">
   <div class="settings__measure">
-    <ion-radio-group value="strawberries">
-      <ion-radio value="grapes">Grapes</ion-radio><br />
-      <ion-radio value="strawberries">Strawberries</ion-radio><br />
-      <ion-radio value="pineapple">Pineapple</ion-radio><br />
-      <ion-radio value="cherries">Cherries</ion-radio>
+    <ion-radio-group
+      class="radio"
+      [value]="selectedMeasure"
+      (ionChange)="onMeasureChange($event)"
+    >
+      <ion-radio
+        class="radio__button"
+        value="us"
+        labelPlacement="end"
+        justify="start"
+        >US</ion-radio
+      >
+      <ion-radio
+        class="radio__button"
+        value="metric"
+        labelPlacement="end"
+        justify="start"
+        >METRIC</ion-radio
+      >
     </ion-radio-group>
   </div>
 </div>
