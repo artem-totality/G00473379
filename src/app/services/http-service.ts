@@ -15,7 +15,11 @@ export class HttpService {
 
   // get recipe details
   getRecipeDetails(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/recipes/${id}/information`);
+    return this.http.get(
+      `${this.apiUrl}/recipes/${id}/information?${getStringifiedQuery({
+        apiKey: this.apiKey,
+      })}`
+    );
   }
 
   getRecipesByIngredients(ingredients: string[]): Observable<any> {
