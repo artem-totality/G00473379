@@ -4,15 +4,14 @@ interface Ingredient {
   measures: Measures;
 }
 
+interface Measure {
+  amount: number;
+  unitLong: string;
+}
+
 interface Measures {
-  us: {
-    amount: number;
-    unitLong: string;
-  };
-  metric: {
-    amount: number;
-    unitLong: string;
-  };
+  us: Measure;
+  metric: Measure;
 }
 
 interface InstructionStep {
@@ -36,6 +35,7 @@ export {
   RecipeDetailsModel,
   Ingredient,
   Measures,
+  Measure,
   Instruction,
   InstructionStep,
 };

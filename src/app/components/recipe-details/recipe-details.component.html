@@ -1,5 +1,8 @@
 <div class="recipe-details">
   <ion-text color="primary">
     <h2>Ingredients:</h2>
+    @for (ingredient of ingredients; track $index) {
+    <ingredient [ingredient]="ingredient"></ingredient>
+    }
   </ion-text>
 </div>

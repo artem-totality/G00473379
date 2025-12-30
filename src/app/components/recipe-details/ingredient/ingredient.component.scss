@@ -1,0 +1,17 @@
+.ingredient {
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgb(192, 192, 192);
+  &__img {
+    max-width: 320px;
+  }
+  &__info {
+    text-align: left;
+  }
+  &__original {
+    color: #303030;
+  }
+  &__measure {
+    color: #606060;
+  }
+}
