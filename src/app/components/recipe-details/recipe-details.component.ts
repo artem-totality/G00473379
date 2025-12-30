@@ -28,7 +28,9 @@ export class RecipeDetailsComponent implements OnInit {
     if (changes['recipeDetails'] && this.recipeDetails) {
       this.ingredients = this.recipeDetails.extendedIngredients ?? [];
       const [instruction] = this.recipeDetails.analyzedInstructions;
-      this.steps = instruction.steps;
+      if (instruction) {
+        this.steps = instruction.steps;
+      }
     }
   }
 }
