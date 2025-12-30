@@ -7,20 +7,19 @@ import { RecipeModel } from '../models/recipe.model';
   providedIn: 'root',
 })
 export class SearchRecipesService {
-  private reciepts = new BehaviorSubject<RecipeModel[]>([]);
+  private reciepes = new BehaviorSubject<RecipeModel[]>([]);
 
-  recieptes$ = this.reciepts.asObservable();
+  reciepes$ = this.reciepes.asObservable();
 
   constructor(private httpService: HttpService) {}
 
   loadRecieptsByIngredients(ingredients: string[]) {
     this.httpService.getRecipesByIngredients(ingredients).subscribe({
       next: (data) => {
-        this.reciepts.next(data as RecipeModel[]);
-        console.log(data);
+        this.reciepes.next(data as RecipeModel[]);
       },
       error: (err) => {
-        this.reciepts.next([]);
+        this.reciepes.next([]);
         console.error(err);
       },
     });

@@ -6,7 +6,10 @@
       [(ngModel)]="searchQuery"
     ></ion-input>
   </ion-item>
-  <ion-button expand="full" disabled="{{ !searchQuery.trim() }}"
+  <ion-button
+    expand="full"
+    disabled="{{ !searchQuery.trim() }}"
+    (click)="searchRecipes()"
     >Search</ion-button
   >
 </div>

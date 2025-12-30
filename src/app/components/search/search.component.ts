@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonInput, IonItem, IonButton } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
+import { SearchRecipesService } from 'src/app/services/search-recipes-service';
 
 @Component({
   selector: 'search',
@@ -10,7 +11,21 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
   searchQuery: string = '';
-  constructor() {}
+  constructor(private searchRecipesService: SearchRecipesService) {}
+
+  searchRecipes() {
+    const ingredients = this.searchQuery
+      .split(',')
+      .map((i) => i.trim())
+      .filter((i) => i);
+
+    if (!ingredients.length) {
+      this.searchQuery = '';
+      return;
+    }
+
+    this.searchRecipesService.loadRecieptsByIngredients(ingredients);
+  }
 
   ngOnInit() {}
 }
