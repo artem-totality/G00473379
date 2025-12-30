@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./pages/favorite/favorite.page').then((m) => m.HomePage),
   },
   {
+    path: 'details/:id',
+    loadComponent: () =>
+      import('./pages/details/details.page').then((m) => m.DetailsPage),
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full',

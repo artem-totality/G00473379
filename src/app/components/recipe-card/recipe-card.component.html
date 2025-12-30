@@ -6,7 +6,7 @@
   />
   <div class="recipe__title">{{ recipe.title }}</div>
   <div class="recipe__bottom">
-    <ion-button>Details</ion-button>
+    <ion-button [routerLink]="['/details', recipe.id]">Details</ion-button>
     <ion-button
       shape="round"
       [color]="isFavorite(recipe.id) ? 'danger' : 'primary'"

@@ -4,12 +4,13 @@ import { RecipeModel } from 'src/app/models/recipe.model';
 import { addIcons } from 'ionicons';
 import { heart } from 'ionicons/icons';
 import { FavoriteService } from 'src/app/services/favorite-service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'recipe-card',
   templateUrl: './recipe-card.component.html',
   styleUrls: ['./recipe-card.component.scss'],
-  imports: [IonButton, IonIcon],
+  imports: [IonButton, IonIcon, RouterModule],
 })
 export class RecipeCardComponent implements OnInit {
   favoriteRecipesId: number[] = [];
