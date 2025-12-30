@@ -8,7 +8,7 @@ import { MeasuresSetting } from '../common/enums/enums';
   providedIn: 'root',
 })
 export class SettingsService {
-  private measureSetting = new BehaviorSubject<MeasuresSetting>(
+  private measuresSetting = new BehaviorSubject<MeasuresSetting>(
     MeasuresSetting.METRIC
   );
 
@@ -16,24 +16,24 @@ export class SettingsService {
     this.loadFromStorage();
   }
 
-  measureSetting$ = this.measureSetting.asObservable();
+  measuresSetting$ = this.measuresSetting.asObservable();
 
   private loadFromStorage() {
     const raw = this.storage.getItem(MEASURES_SETTING_STORAGE_KEY);
     const data = raw ? JSON.parse(raw) : MeasuresSetting.METRIC;
-    this.measureSetting.next(data);
+    this.measuresSetting.next(data);
   }
 
-  setFavorites(measureSetting: MeasuresSetting) {
+  setFavorites(measuresSetting: MeasuresSetting) {
     this.storage.setItem(
       MEASURES_SETTING_STORAGE_KEY,
-      JSON.stringify(measureSetting)
+      JSON.stringify(measuresSetting)
     );
 
-    this.measureSetting.next(measureSetting);
+    this.measuresSetting.next(measuresSetting);
   }
 
   getFavoritesSnapshot(): MeasuresSetting {
-    return this.measureSetting.value;
+    return this.measuresSetting.value;
   }
 }

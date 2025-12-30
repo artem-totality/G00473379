@@ -2,8 +2,11 @@
   <img class="ingredient__img" src="{{ image }}" alt="{{ ingredient.image }}" />
   <div class="ingredient__info">
     <p class="ingredient__original">{{ ingredient.original }}</p>
+
+    @if (measuresSetting$ | async; as setting) {
     <p class="ingredient__measure">
-      {{ measure.amount }} {{ measure.unitLong }}
+      {{ getMeasure(setting).amount }} {{ getMeasure(setting).unitLong }}
     </p>
+    }
   </div>
 </div>
