@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {
   IonHeader,
   IonToolbar,
@@ -18,6 +18,9 @@ import { optionsOutline, heart } from 'ionicons/icons';
   imports: [IonHeader, IonToolbar, IonTitle, IonIcon, IonButton, IonButtons],
 })
 export class HeaderComponent implements OnInit {
+  @Input()
+  title!: string;
+
   constructor(private router: Router) {
     addIcons({ heart, optionsOutline });
   }
