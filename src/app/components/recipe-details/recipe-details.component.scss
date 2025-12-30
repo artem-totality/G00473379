@@ -4,4 +4,10 @@
     text-align: left;
     color: #303030;
   }
+  &__instructions-list {
+    text-align: left;
+    li {
+      margin-bottom: 10px;
+    }
+  }
 }

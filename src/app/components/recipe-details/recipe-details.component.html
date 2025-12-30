@@ -1,8 +1,17 @@
 <div class="recipe-details">
   <ion-text color="primary">
     <h2>Ingredients:</h2>
-    @for (ingredient of ingredients; track $index) {
-    <ingredient [ingredient]="ingredient"></ingredient>
-    }
   </ion-text>
+  @for (ingredient of ingredients; track $index) {
+  <ingredient [ingredient]="ingredient"></ingredient>
+  }
+  <div class="recipe-details__instructions"></div>
+  <ion-text color="primary">
+    <h2>Instructions:</h2>
+  </ion-text>
+  <ol class="recipe-details__instructions-list">
+    @for (step of steps; track $index) {
+    <li>{{ step.step }}</li>
+    }
+  </ol>
 </div>

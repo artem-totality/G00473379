@@ -2,6 +2,7 @@ import { Component, OnInit, Input, SimpleChanges } from '@angular/core';
 import { IonText } from '@ionic/angular/standalone';
 import {
   Ingredient,
+  InstructionStep,
   RecipeDetailsModel,
 } from 'src/app/models/recipe-details.model';
 import { IngredientComponent } from './ingredient/ingredient.component';
@@ -14,6 +15,7 @@ import { IngredientComponent } from './ingredient/ingredient.component';
 })
 export class RecipeDetailsComponent implements OnInit {
   ingredients: Ingredient[] = [];
+  steps: InstructionStep[] = [];
 
   @Input()
   recipeDetails!: RecipeDetailsModel;
@@ -25,6 +27,8 @@ export class RecipeDetailsComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['recipeDetails'] && this.recipeDetails) {
       this.ingredients = this.recipeDetails.extendedIngredients ?? [];
+      const [instruction] = this.recipeDetails.analyzedInstructions;
+      this.steps = instruction.steps;
     }
   }
 }

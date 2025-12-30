@@ -9,9 +9,12 @@
     text-align: left;
   }
   &__original {
+    margin: 0;
     color: #303030;
   }
   &__measure {
+    margin: 5px 0;
+    font-size: 0.8rem;
     color: #606060;
   }
 }
