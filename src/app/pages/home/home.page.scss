@@ -19,3 +19,13 @@
 #container a {
   text-decoration: none;
 }
+
+.content-wrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-top {
+  flex-grow: 1;
+}
