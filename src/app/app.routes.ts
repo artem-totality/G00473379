@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./pages/favorite/favorite.page').then((m) => m.HomePage),
   },
   {
+    path: 'settings',
+    loadComponent: () =>
+      import('./pages/settings/settings.page').then((m) => m.SettingsPage),
+  },
+  {
     path: 'details/:id',
     loadComponent: () =>
       import('./pages/details/details.page').then((m) => m.DetailsPage),
