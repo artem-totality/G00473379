@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonRadio, IonRadioGroup } from '@ionic/angular/standalone';
+import { IonRadio, IonRadioGroup, IonText } from '@ionic/angular/standalone';
 import { MeasuresSetting } from 'src/app/common/enums/app.enum';
 import { SettingsService } from 'src/app/services/settings-service';
 
@@ -7,7 +7,7 @@ import { SettingsService } from 'src/app/services/settings-service';
   selector: 'settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
-  imports: [IonRadio, IonRadioGroup],
+  imports: [IonRadio, IonRadioGroup, IonText],
 })
 export class SettingsComponent implements OnInit {
   selectedMeasure = MeasuresSetting.US;
