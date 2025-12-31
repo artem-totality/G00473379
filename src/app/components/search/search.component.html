@@ -4,6 +4,7 @@
       label="Input ingredients: "
       placeholder="ingredients..."
       [(ngModel)]="searchQuery"
+      (keyup.enter)="searchRecipes()"
     ></ion-input>
   </ion-item>
   <ion-button
