@@ -6,12 +6,23 @@
   <ingredient [ingredient]="ingredient"></ingredient>
   }
   <div class="recipe-details__instructions"></div>
-  <ion-text color="primary">
-    <h2>Instructions:</h2>
-  </ion-text>
-  <ol class="recipe-details__instructions-list">
-    @for (step of steps; track $index) {
-    <li>{{ step.step }}</li>
-    }
-  </ol>
+  <div class="recipe-details__instructions">
+    <ion-text color="primary">
+      <h2>Instructions:</h2>
+    </ion-text>
+    <ol class="recipe-details__instructions-list">
+      @for (step of steps; track $index) {
+      <li>{{ step.step }}</li>
+      }
+    </ol>
+  </div>
+  <div class="recipe-details__like">
+    <ion-button
+      shape="round"
+      [color]="isFavorite(id) ? 'danger' : 'primary'"
+      (click)="toggleFavorite()"
+    >
+      <ion-icon slot="icon-only" name="heart"></ion-icon>
+    </ion-button>
+  </div>
 </div>

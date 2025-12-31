@@ -13,8 +13,6 @@ import { RouterModule } from '@angular/router';
   imports: [IonButton, IonIcon, RouterModule],
 })
 export class RecipeCardComponent implements OnInit {
-  favoriteRecipesId: number[] = [];
-
   @Input()
   recipe!: RecipeModel;
   @Input()
