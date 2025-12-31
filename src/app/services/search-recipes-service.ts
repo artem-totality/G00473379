@@ -24,4 +24,8 @@ export class SearchRecipesService {
       },
     });
   }
+
+  clearRecipes() {
+    this.reciepes.next([]);
+  }
 }

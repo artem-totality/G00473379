@@ -1,7 +1,20 @@
 .search {
   margin-top: 5px;
   margin-bottom: 15px;
+  &__top {
+    position: relative;
+  }
   &__input {
     margin-bottom: 10px;
+    margin-right: 45px;
+  }
+  &__clear {
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    &--hide {
+      display: none;
+    }
   }
 }

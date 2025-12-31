@@ -1,12 +1,23 @@
 <div class="search">
-  <ion-item class="search__input">
-    <ion-input
-      label="Input ingredients: "
-      placeholder="ingredients..."
-      [(ngModel)]="searchQuery"
-      (keyup.enter)="searchRecipes()"
-    ></ion-input>
-  </ion-item>
+  <div class="search__top">
+    <ion-item class="search__input">
+      <ion-input
+        label="Input ingredients: "
+        placeholder="ingredients..."
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="searchRecipes()"
+      ></ion-input>
+    </ion-item>
+    <ion-button
+      [class]="searchQuery ? 'search__clear' : 'search__clear--hide'"
+      shape="round"
+      fill="clear"
+      color="medium"
+      (click)="clearSearch()"
+    >
+      <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+    </ion-button>
+  </div>
   <ion-button
     expand="full"
     disabled="{{ !searchQuery.trim() }}"
